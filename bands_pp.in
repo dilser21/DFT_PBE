@@ -1,0 +1,5 @@
+&BANDS
+  prefix = 'CsPbBr3'
+  outdir = './tmp/'
+  filband = 'cspbbr3_bands.dat'
+/
