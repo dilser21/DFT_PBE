@@ -1,1 +1,42 @@
-
+&CONTROL
+calculation = 'scf' ! Self-Consistent Field (Temel Hal
+Enerjisi)
+restart_mode = 'from_scratch'
+prefix = 'CsPbBr3'
+outdir = './tmp' ! Geçici dosyalar buraya
+pseudo_dir = './' ! Pseudo dosyaları aynı klasörde
+verbosity = 'high'
+/
+&SYSTEM
+ibrav = 0 ! Hücreyi biz elle gireceğiz
+nat = 5 ! Atom sayısı (1 Cs + 1 Pb + 3 Br)
+ntyp = 3 ! Atom türü sayısı
+ecutwfc = 60.0 ! Dalga fonksiyonu kesim enerjisi
+(Rydberg)
+ecutrho = 480.0 ! Yük yoğunluğu kesim enerjisi
+! --- SOC (Spin-Orbit Coupling) AYARLARI ---
+lspinorb = .true. ! SOC açık
+noncolin = .true. ! Non-collinear spin (SOC için şart)
+/
+&ELECTRONS
+conv_thr = 1.0d-8 ! Yakınsama hassasiyeti
+mixing_beta = 0.7
+/
+ATOMIC_SPECIES
+! Buradaki dosya isimleri senin indirdiklerinle BİREBİR aynı olmalı!
+Cs 132.90545 Cs.rel-pbe-spn-kjpaw_psl.1.0.0.UPF
+Pb 207.2 Pb.rel-pbe-spn-kjpaw_psl.1.0.0.UPF
+Br 79.904 Br.rel-pbe-spn-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {angstrom}
+! CsPbBr3 Kübik Yapı (Pm-3m)
+Cs 0.00000 0.00000 0.00000
+Pb 2.93500 2.93500 2.93500
+Br 2.93500 2.93500 0.00000
+Br 2.93500 0.00000 2.93500
+Br 0.00000 2.93500 2.93500
+K_POINTS {automatic}
+4 4 4 0 0 0 ! K-noktası ağı (Test için 4x4x4 iyidir)
+CELL_PARAMETERS {angstrom}
+5.8700 0.0000 0.0000
+0.0000 5.8700 0.0000
+0.0000 0.0000 5.8700
