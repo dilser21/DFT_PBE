@@ -1,0 +1,48 @@
+&CONTROL
+    calculation = 'vc-relax'
+    restart_mode = 'from_scratch'
+    prefix = 'CsPbBr3'
+    pseudo_dir = './'
+    outdir = './tmp/'
+    tstress = .true.
+    tprnfor = .true.
+    etot_conv_thr = 1.0d-4
+    forc_conv_thr = 1.0d-3
+/
+&SYSTEM
+    ibrav = 0
+    nat = 5
+    ntyp = 3
+    ecutwfc = 80
+    ecutrho = 320
+!   occupations = 'smearing', smearing = 'gaussian', degauss = 0.01
+!   (Eger 'convergence not achieved' hatasi alirsan yukaridaki unlem isaretini kaldir)
+/
+&ELECTRONS
+    conv_thr = 1.0d-8
+    mixing_beta = 0.7
+/
+&IONS
+    ion_dynamics = 'bfgs'
+/
+&CELL
+    cell_dynamics = 'bfgs'
+    press = 0.0
+    press_conv_thr = 0.5
+/
+ATOMIC_SPECIES
+ Cs  132.90545  Cs.nc.z_9.oncvpsp3.dojo.v4-str.UPF
+ Pb  207.2      Pb.pbe-dn-kjpaw_psl.0.2.2.UPF
+ Br  79.904     br_pbe_v1.4.uspp.F.UPF
+ATOMIC_POSITIONS (crystal)
+ Cs 0.000000 0.000000 0.000000
+ Pb 0.500000 0.500000 0.500000
+ Br 0.500000 0.500000 0.000000
+ Br 0.500000 0.000000 0.500000
+ Br 0.000000 0.500000 0.500000
+CELL_PARAMETERS (angstrom)
+   5.87 0.00 0.00
+   0.00 5.87 0.00
+   0.00 0.00 5.87
+K_POINTS (automatic)
+  6 6 6 0 0 0
