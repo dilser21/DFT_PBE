@@ -1,0 +1,41 @@
+&CONTROL
+    calculation = 'bands'
+    restart_mode = 'from_scratch'
+    prefix = 'CsPbBr3'
+    pseudo_dir = './'
+    outdir = './tmp/'
+    verbosity = 'high'
+/
+&SYSTEM
+    ibrav = 0
+    nat = 5
+    ntyp = 3
+    ecutwfc = 80
+    ecutrho = 320
+    nbnd = 30
+/
+&ELECTRONS
+    conv_thr = 1.0d-8
+    mixing_beta = 0.7
+/
+ATOMIC_SPECIES
+ Cs  132.90545  Cs.nc.z_9.oncvpsp3.dojo.v4-str.UPF
+ Pb  207.2      Pb.pbe-dn-kjpaw_psl.0.2.2.UPF
+ Br  79.904     br_pbe_v1.4.uspp.F.UPF
+CELL_PARAMETERS (angstrom)
+   6.003714682   0.000000000   0.000000000
+   0.000000000   6.003714682   0.000000000
+   0.000000000   0.000000000   6.003714682
+ATOMIC_POSITIONS (crystal)
+ Cs  0.0000000000   0.0000000000   0.0000000000
+ Pb  0.5000000000   0.5000000000   0.5000000000
+ Br  0.5000000000   0.5000000000   0.0000000000
+ Br  0.5000000000   0.0000000000   0.5000000000
+ Br  0.0000000000   0.5000000000   0.5000000000
+K_POINTS (crystal_b)
+ 5
+ 0.00 0.00 0.00  40 ! Gamma
+ 0.50 0.00 0.00  40 ! X
+ 0.50 0.50 0.00  40 ! M
+ 0.00 0.00 0.00  40 ! Gamma
+ 0.50 0.50 0.50  40 ! R
